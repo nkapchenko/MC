@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE MacsML>
+<MacsML>
+  <IDs> 107664 ; 0 </IDs>
+  <ProcessesList>
+    <NumberOfElements> 1 </NumberOfElements>
+    <Processes>
+      <Process>
+        <ProcessLabel>EUR</ProcessLabel>
+        <ProcessMarket>Unknown</ProcessMarket>
+        <RateCurve>
+          <OneDCurve>
+            <CurveLabel>EUR EONIA</CurveLabel>
+            <InterpolationMethod> RateTime_Linear </InterpolationMethod>
+            <NumberOfElements> 2 </NumberOfElements>
+            <Buckets>  0.0  ;   10.0 </Buckets>
+            <Values>  0.01  ;   0.01 </Values>
+          </OneDCurve>
+        </RateCurve>
+        <FactorsList>
+          <NumberOfElements> 1 </NumberOfElements>
+          <Factors>
+            <Factor>
+              <VolatilityCurve>
+                <OneDCurve>
+                  <InterpolationMethod> PieceWise </InterpolationMethod>
+                  <NumberOfElements> 2 </NumberOfElements>
+                  <Buckets>  0.0  ;   10.0  </Buckets>
+                  <Values>  0.005  ;   0.005 </Values>
+                </OneDCurve>
+              </VolatilityCurve>
+              <MeanRR>  0.0500000000000</MeanRR>
+            </Factor>
+          </Factors>
+        </FactorsList>
+        <ModelType> HW </ModelType>
+        <PositiveRates>0</PositiveRates>
+        <AssetType> Rate </AssetType>
+        <AssetProxyType> Rate </AssetProxyType>
+        <IsRisky> No </IsRisky>
+      </Process>
+    </Processes>
+  </ProcessesList>
+  <CorrelationsList>
+    <NumberOfElements> 1 </NumberOfElements>
+    <Correlations>
+      <Correlation> Rate ; 0 ; Rate ; 0 ;   1.0000000000000 </Correlation>
+    </Correlations>
+  </CorrelationsList>
+  <ModelSettings>
+    <Category> MultiAssetMc </Category>
+    <Iterations>50 </Iterations>
+    <Paths>1 </Paths>
+    <Refinement>0 </Refinement>
+    <Seed>-1  </Seed>
+    <RandomGenerator>QuasiAntitheticPhilox </RandomGenerator>
+    <MonteCarloScheme>Euler </MonteCarloScheme>
+    <MonteCarloMode>Straight </MonteCarloMode>
+    <BarrierAdjustment>0 </BarrierAdjustment>
+    <American>
+      <DegreeBase>2 </DegreeBase>
+      <TypeBase>Local_Regression </TypeBase>
+    </American>
+    <RiskProbability> TerminalMeasure </RiskProbability>
+    <EnforceDiscretizationScheme> No </EnforceDiscretizationScheme>
+    <MaxThreads> 0 </MaxThreads>
+    <InitImplDate> 0 </InitImplDate>
+  </ModelSettings>
+  <TracesList>
+    <NumberOfElements> 1 </NumberOfElements>
+    <Traces>
+      <Trace>MC Debug Trace</Trace>
+    </Traces>
+  </TracesList>
+  <QueriesList>
+    <NumberOfElements> 1 </NumberOfElements>
+    <Queries>
+      <Query>
+        <QRType> Npv </QRType>
+        <QRAssetType> Rate </QRAssetType>
+        <QRAsset> 0 </QRAsset>
+        <QRLevel> 0 </QRLevel>
+        <QRCalibrate> 1 </QRCalibrate>
+        <QueryGenerateAnalyticalSns> 0 </QueryGenerateAnalyticalSns>
+        <ExcludeAnalyticalSnsCompuation> 0 </ExcludeAnalyticalSnsCompuation>
+        <TermStructureAsOneBump> 0 </TermStructureAsOneBump>
+        <SausageMode> 0 </SausageMode>
+      </Query>
+    </Queries>
+  </QueriesList>
+  <WorkOnGpu> No </WorkOnGpu>
+  <Payoff>
+    <ScriptEval> Python </ScriptEval>
+    <Trace> Yes </Trace>
+    <PastCashFlowsOnly> No </PastCashFlowsOnly>
+    <VariablesList>
+      <NumberOfElements> 6 </NumberOfElements>
+      <Variables>
+        <Variable>
+          <VariableDescription> FwdD5Y ; Discounted ; Contract ; Double </VariableDescription>
+        </Variable>
+        <Variable>
+          <VariableDescription> FwdD4Y ; Discounted ; Contract ; Double </VariableDescription>
+        </Variable>
+        <Variable>
+          <VariableDescription> FwdD3Y ; Discounted ; Contract ; Double </VariableDescription>
+        </Variable>
+        <Variable>
+          <VariableDescription> FwdD2Y ; Discounted ; Contract ; Double </VariableDescription>
+        </Variable>
+        <Variable>
+          <VariableDescription> FwdD1Y ; Discounted ; Contract ; Double </VariableDescription>
+        </Variable>
+        <Variable>
+          <VariableDescription> Unit ; Discounted ; Contract ; Double </VariableDescription>
+        </Variable>
+      </Variables>
+    </VariablesList>
+    <FormulasList>
+      <NumberOfElements> 100 </NumberOfElements>
+      <Formulas>
+        <Formula> 6 ; 6.000000 ; Basic ; None  </Formula>
+        <Formula> 5 ; 5.000000 ; Basic ; self.FwdD5Y = Discount(0, 5.0, 6.0)  </Formula>
+        <Formula> 4 ; 4.000000 ; Basic ; self.FwdD4Y = Discount(0, 4.0, 6.0)  </Formula>
+        <Formula> 3 ; 3.000000 ; Basic ; self.FwdD3Y = Discount(0, 3.0, 6.0)  </Formula>
+        <Formula> 2 ; 2.000000 ; Basic ; self.FwdD2Y = Discount(0, 2.0, 6.0)  </Formula>
+        <Formula> 1 ; 1.000000 ; Basic ; self.FwdD1Y = Discount(0, 1.0, 6.0)  </Formula>
+        <Formula> 0 ; 0.000000 ; Basic ; self.Unit = 1.0 </Formula>
+      </Formulas>
+    </FormulasList>
+  </Payoff>
+</MacsML>

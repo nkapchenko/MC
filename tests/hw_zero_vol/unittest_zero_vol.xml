@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<!DOCTYPE MacsML>
+<MacsML>
+	<IDs> 107664 ; 0 </IDs>
+	<MacsInstrument> Bermuda swaption </MacsInstrument>
+	<ProcessesList>
+		<NumberOfElements> 1 </NumberOfElements>
+		<Processes>
+			<Process>
+				<ProcessLabel>EUR</ProcessLabel>
+				<ProcessMarket>Unknown</ProcessMarket>
+				<RateCurve>
+					<OneDCurve>
+						<CurveLabel>EUR EONIA</CurveLabel>
+						<InterpolationMethod> RateTime_Linear </InterpolationMethod>
+						<NumberOfElements> 37 </NumberOfElements>
+						<Buckets>  0.0000000000000  ;   0.0054794520548  ;   0.0246575342466  ;   0.0438356164384  ;   0.0630136986301  ;   0.0931506849315  ;   0.1726027397260  ;   0.2547945205479  ;   0.3424657534247  ;   0.4246575342466  ;   0.4958904109589  ;   0.5013698630137  ;   0.5917808219178  ;   0.6684931506849  ;   0.7534246575342  ;   0.8410958904110  ;   0.9205479452055  ;   0.9972602739726  ;   1.0054794520548  ;   1.4958904109589  ;   1.5013698630137  ;   2.0000000000000  ;   2.0109589041096  ;   2.4958904109589  ;   2.5013698630137  ;   2.5095890410959  ;   2.9972602739726  ;   3.0082191780822  ;   3.4931506849315  ;   3.5095890410959  ;   3.9972602739726  ;   4.0082191780822  ;   4.0136986301370  ;   4.4931506849315  ;   4.5041095890411  ;   5.0082191780822  ;   6.0082191780822 </Buckets>
+						<Values>  0.0012876229904  ;   0.0012876229904  ;   0.0012876229904  ;   0.0012964801676  ;   0.0013061070702  ;   0.0012875695541  ;   0.0012875042553  ;   0.0013370243600  ;   0.0013172806851  ;   0.0013573134076  ;   0.0013761951735  ;   0.0013774253852  ;   0.0013975655879  ;   0.0013976091114  ;   0.0014177382635  ;   0.0014378716462  ;   0.0014378749649  ;   0.0014470342132  ;   0.0014479326681  ;   0.0014083413272  ;   0.0014080450743  ;   0.0012389617921  ;   0.0012361873621  ;   0.0014170689035  ;   0.0014187120499  ;   0.0014211633158  ;   0.0015425420565  ;   0.0015448175508  ;   0.0016312140533  ;   0.0016337243633  ;   0.0016988048814  ;   0.0017000854292  ;   0.0017007230808  ;   0.0017504958721  ;   0.0017515096661  ;   0.0017933480826  ;   0.0031995267021 </Values>
+					</OneDCurve>
+				</RateCurve>
+				<SpreadRateCurveList>
+					<SpreadRateCurveNumber> 1 </SpreadRateCurveNumber>
+					<SpreadRateCurves>
+						<SpreadRateCurve>
+							<OneDCurve>
+								<CurveLabel>EUR EURIBOR 6M</CurveLabel>
+								<InterpolationMethod> RateTime_Linear </InterpolationMethod>
+								<NumberOfElements> 37 </NumberOfElements>
+								<Buckets>  0.0000000000000  ;   0.0054794520548  ;   0.0246575342466  ;   0.0438356164384  ;   0.0630136986301  ;   0.0931506849315  ;   0.1726027397260  ;   0.2547945205479  ;   0.3424657534247  ;   0.4246575342466  ;   0.4958904109589  ;   0.5013698630137  ;   0.5917808219178  ;   0.6684931506849  ;   0.7534246575342  ;   0.8410958904110  ;   0.9205479452055  ;   0.9972602739726  ;   1.0054794520548  ;   1.4958904109589  ;   1.5013698630137  ;   2.0000000000000  ;   2.0109589041096  ;   2.4958904109589  ;   2.5013698630137  ;   2.5095890410959  ;   2.9972602739726  ;   3.0082191780822  ;   3.4931506849315  ;   3.5095890410959  ;   3.9972602739726  ;   4.0082191780822  ;   4.0136986301370  ;   4.4931506849315  ;   4.5041095890411  ;   5.0082191780822  ;   6.0082191780822 </Buckets>
+								<Values> -0.0040463492656  ;  -0.0040463492656  ;  -0.0040463492657  ;  -0.0040552064429  ;  -0.0040648333455  ;  -0.0040462958293  ;  -0.0040462305306  ;  -0.0040957506353  ;  -0.0040532917285  ;  -0.0040805471331  ;  -0.0040917813330  ;  -0.0040925132797  ;  -0.0041057642750  ;  -0.0040591274050  ;  -0.0040359941900  ;  -0.0039956424329  ;  -0.0039507825643  ;  -0.0039234086601  ;  -0.0039207234815  ;  -0.0037655201347  ;  -0.0037643587836  ;  -0.0034858124646  ;  -0.0034812418930  ;  -0.0027659699382  ;  -0.0027594723346  ;  -0.0027497791302  ;  -0.0022698030726  ;  -0.0022608049337  ;  -0.0014600164229  ;  -0.0014367489601  ;  -0.0008335332097  ;  -0.0008216641186  ;  -0.0008112518643  ;   0.0000014912405  ;   0.0000180455492  ;   0.0007012277392  ;   0.0008553610680 </Values>
+							</OneDCurve>
+						</SpreadRateCurve>
+					</SpreadRateCurves>
+				</SpreadRateCurveList>
+				<RateCurveMapping>
+					<ModelSpreadCurve>
+						<RefCurveNoSpread> TRUE </RefCurveNoSpread>
+						<RefCurveLabel>EUR EONIA</RefCurveLabel>
+					</ModelSpreadCurve>
+					<EvalSpreadCurve>
+						<RefCurveNoSpread> TRUE </RefCurveNoSpread>
+						<RefCurveLabel>EUR EONIA</RefCurveLabel>
+					</EvalSpreadCurve>
+					<SwapDiscountSpreadCurve>
+						<RefCurveNoSpread> TRUE </RefCurveNoSpread>
+						<RefCurveLabel>EUR EONIA</RefCurveLabel>
+					</SwapDiscountSpreadCurve>
+					<SwapEstimationSpreadCurves>
+						<SwapEstimationSpreadCurve>
+							<SpreadCurveKey> 0 </SpreadCurveKey>
+							<SpreadCurveTenor> 6 </SpreadCurveTenor>
+							<SpreadCurveLabel>EUR EURIBOR 6M</SpreadCurveLabel>
+						</SwapEstimationSpreadCurve>
+					</SwapEstimationSpreadCurves>
+				</RateCurveMapping>
+				<FactorsList>
+					<NumberOfElements> 1 </NumberOfElements>
+					<Factors>
+						<Factor>
+							<VolatilityCurve>
+								<OneDCurve>
+									<InterpolationMethod> PieceWise </InterpolationMethod>
+									<NumberOfElements> 2 </NumberOfElements>
+									<Buckets>  0.0000000000000  ;  15.0082191780822 </Buckets>
+									<Values>  0.0000001000000  ;   0.0000001000000 </Values>
+								</OneDCurve>
+							</VolatilityCurve>
+							<MeanRR>  0.0500000000000</MeanRR>
+						</Factor>
+					</Factors>
+				</FactorsList>
+				<FactorsCorrelations> 0.0000000000000000 ; 0.0000000000000000 ; 0.0000000000000000 </FactorsCorrelations>
+				<CalibrationBasket>
+					<CalibrationStatus> Ok </CalibrationStatus>
+					<CalMeanR> BootstrapOnly </CalMeanR>
+					<UseAdjusters> 0 </UseAdjusters>
+					<FBestFitLevel> -1 </FBestFitLevel>
+					<SBestFitLevel> -1 </SBestFitLevel>
+					<FBootstrapLevel> 0 </FBootstrapLevel>
+					<SBootstrapLevel> 1 </SBootstrapLevel>
+					<FAdjusterLevel> 0 </FAdjusterLevel>
+					<SAdjusterLevel> 0 </SAdjusterLevel>
+					<MaxAdjusterStdDev> 0.00 </MaxAdjusterStdDev>
+					<CalAnalysis> 1 </CalAnalysis>
+					<CalibrateSkew> 0 </CalibrateSkew>
+					<ANSLinearInterpolation> 0 </ANSLinearInterpolation>
+					<CmsLevels> 0  ;  0  ;  0  ;  0  ;  0 </CmsLevels>
+					<CmsReplicationSwapRateModel> Linear </CmsReplicationSwapRateModel>
+					<CalibrationLevelDescriptionList>
+						<CalibrationLevelDescription>0 ; Coterminal ; OnExercizeDate </CalibrationLevelDescription>
+					</CalibrationLevelDescriptionList>
+					<NumberOfElements> 4 </NumberOfElements>
+					<CalibrationInstruments>
+						<CalibrationInstrument>
+							<Type> Instrument </Type>
+							<OptionType> AssetPut </OptionType>
+							<CalibrationLevel> 0 </CalibrationLevel>
+							<OptionExpiry>   0.9972602739726  </OptionExpiry>
+							<FXDeltaATMDefinition> 0 </FXDeltaATMDefinition>
+							<FXDeltaConvention> 0 </FXDeltaConvention>
+							<ForwardDate>   0.0000000000000  </ForwardDate>
+							<OptionDelivery>   0.0000000000000  </OptionDelivery>
+							<BlackVol>   0.00001  </BlackVol>
+							<VolModel> Normal </VolModel>
+							<BlackVolSlope>   0.0000000000000  </BlackVolSlope>
+							<ExoticUnderlying> 0 ;   0.0000000000000 ;    0.0000000000000 ;   0.0000000000000 ;   0.0000000000000 ;   0.0000000000000 </ExoticUnderlying>
+							<ExoticPremium>    0.0000000000000 ;    0.0000000000000  </ExoticPremium>
+							<Weight>   0.0000000000000  </Weight>
+							<BasicDyn>Fixed </BasicDyn>
+							<PayReceive> Payer </PayReceive>
+							<CalInstKType> Fixed </CalInstKType>
+							<CalInstStatus> Unknown </CalInstStatus>
+							<CalibratedPremium>   0.0000000000000  </CalibratedPremium>
+							<CalibratedVolatility>   0.0000000000000  </CalibratedVolatility>
+							<CalInstTenor> 6 </CalInstTenor>
+							<FlowsNb> 6 </FlowsNb>
+							<Flows>
+								<Flow>   1.0054794520548 ;   1.0000000000000 ;   0.0000000000000 ; FloatingLeg </Flow>
+								<Flow>   2.0109589041096 ;  -0.0000000000000 ;   1.0194444444444 ; FixFleg </Flow>
+								<Flow>   3.0082191780822 ;  -0.0000000000000 ;   1.0111111111111 ; FixFleg </Flow>
+								<Flow>   4.0082191780822 ;  -0.0000000000000 ;   1.0138888888889 ; FixFleg </Flow>
+								<Flow>   5.0082191780822 ;  -0.0000000000000 ;   1.0138888888889 ; FixFleg </Flow>
+								<Flow>   5.0082191780822 ;  -1.0000000000000 ;   0.0000000000000 ; FloatingLeg </Flow>
+							</Flows>
+						</CalibrationInstrument>
+					</CalibrationInstruments>
+				</CalibrationBasket>
+				<Beta>0.000000</Beta>
+				<CapSmile>0</CapSmile>
+				<VolType> VolFwdFwd </VolType>
+				<ModelType> HW </ModelType>
+				<PositiveRates>0</PositiveRates>
+				<AssetType> Rate </AssetType>
+				<AssetProxyType> Rate </AssetProxyType>
+				<IsRisky> No </IsRisky>
+				<DSCCreditBased> 0 </DSCCreditBased>
+				<EvalSpreadCurveNumber> 0 </EvalSpreadCurveNumber>
+				<CSOCorrNumber> 0 </CSOCorrNumber>
+			</Process>
+		</Processes>
+	</ProcessesList>
+	<CorrelationsList>
+		<NumberOfElements> 1 </NumberOfElements>
+		<Correlations>
+			<Correlation> Rate ; 0 ; Rate ; 0 ;   1.0000000000000 </Correlation>
+		</Correlations>
+	</CorrelationsList>
+	<ModelSettings>
+		<Category> MultiAssetMc </Category>
+		<Iterations>500 </Iterations>
+		<Paths>1000 </Paths>
+		<Refinement>0 </Refinement>
+		<Seed>-1  </Seed>
+		<RandomGenerator>QuasiAntitheticPhilox </RandomGenerator>
+		<MonteCarloScheme>Euler </MonteCarloScheme>
+		<MonteCarloMode>Straight </MonteCarloMode>
+		<BarrierAdjustment>0 </BarrierAdjustment>
+		<American>
+			<DegreeBase>2 </DegreeBase>
+			<TypeBase>Local_Regression </TypeBase>
+		</American>
+		<TarnProbability>0 </TarnProbability>
+		<ExercizeProbability> 1 </ExercizeProbability>
+		<KnockProbability> 0 </KnockProbability>
+		<FlowExpectation> 0 </FlowExpectation>
+		<MaxThreads> 0 </MaxThreads>
+		<InitImplDate> 0 </InitImplDate>
+	</ModelSettings>
+	<DensitySettings>
+		<DensityVariable>0 </DensityVariable>
+		<DensityFlows> Callable_Density </DensityFlows>
+		<ObservableExpectation>0 </ObservableExpectation>
+	</DensitySettings>
+	<MonteCarloFlags>
+		<CondOpProbability>0 </CondOpProbability>
+	</MonteCarloFlags>
+	<UPLFlags>
+		<BarrierAdjustment>0 </BarrierAdjustment>
+	</UPLFlags>
+	<QueriesList>
+		<NumberOfElements> 1 </NumberOfElements>
+		<Queries>
+			<Query>
+				<QRType> Npv </QRType>
+				<QRAssetType> Rate </QRAssetType>
+				<QRAsset> 0 </QRAsset>
+				<QRLevel> 0 </QRLevel>
+				<QRCalibrate> 1 </QRCalibrate>
+				<QueryGenerateAnalyticalSns> 0 </QueryGenerateAnalyticalSns>
+				<ExcludeAnalyticalSnsCompuation> 0 </ExcludeAnalyticalSnsCompuation>
+				<TermStructureAsOneBump> 0 </TermStructureAsOneBump>
+				<SausageMode> 0 </SausageMode>
+			</Query>
+		</Queries>
+	</QueriesList>
+	<WorkOnGpu> No </WorkOnGpu>
+	<Payoff>
+		<ScriptEval> Python </ScriptEval>
+		<Trace> No </Trace>
+		<PastCashFlowsOnly> No </PastCashFlowsOnly>
+		<VariablesList>
+			<NumberOfElements> 4 </NumberOfElements>
+			<Variables>
+				<Variable>
+					<VariableDescription> HWFwdBond ; Discounted ; Contract ; Double </VariableDescription>
+				</Variable>
+				<Variable>
+					<VariableDescription> Dsc5YHW ; Discounted ; Contract ; Double </VariableDescription>
+				</Variable>
+				<Variable>
+					<VariableDescription> FwdBond0 ; Discounted ; Contract ; Double </VariableDescription>
+				</Variable>
+				<Variable>
+					<VariableDescription> Dsc5Y ; Discounted ; Contract ; Double </VariableDescription>
+				</Variable>
+			</Variables>
+		</VariablesList>
+		<FormulasList>
+			<NumberOfElements> 17 </NumberOfElements>
+			<Formulas>
+				<Formula> 16 ; 5.0 ; Basic ; self.Dsc5YHW=Pay(0, 1.000000, 5.0, 0, 1010)  </Formula>
+				<Formula> 16 ; 4.0 ; Basic ; self.Dsc5Y=Discount(0, 4.0, 5.0)  </Formula>
+				<Formula> 16 ; 4.0 ; Basic ; self.HWFwdBond=Pay(0, 1.000000, 5.0, 0, 1010)  </Formula>
+				<Formula> 16 ; 0.0 ; Basic ; self.FwdBond0=Discount(0, 4.0, 5.0)  </Formula>
+			</Formulas>
+		</FormulasList>
+	</Payoff>
+</MacsML>

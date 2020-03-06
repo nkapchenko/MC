@@ -1,0 +1,348 @@
+<!DOCTYPE MacsML []>
+<MacsML>
+  <IDs> 107664 ; 0 </IDs>
+  <MacsInstrument> Bermuda swaption </MacsInstrument>
+  <ProcessesList>
+    <NumberOfElements> 1 </NumberOfElements>
+    <Processes>
+      <Process>
+        <ProcessLabel>EUR</ProcessLabel>
+        <ProcessMarket>Unknown</ProcessMarket>
+        <FactorsList>
+          <NumberOfElements> 1 </NumberOfElements>
+          <Factors>
+            <Factor>
+              <VolatilityCurve>
+                <OneDCurve>
+                  <InterpolationMethod> PieceWise </InterpolationMethod>
+                  <NumberOfElements> 3 </NumberOfElements>
+                  <Buckets>  0.0000000000000  ;   0.9972602739726  ;  30.9972602739726 </Buckets>
+                  <Values>  0.1161536253382  ;   0.1161536253382  ;   0.1161536253382 </Values>
+                </OneDCurve>
+              </VolatilityCurve>
+              <MeanRR>  0.0500000000000</MeanRR>
+            </Factor>
+          </Factors>
+        </FactorsList>
+        <FactorsCorrelations> 0.0000000000000000 ; 0.0000000000000000 ; 0.0000000000000000 </FactorsCorrelations>
+        <CalibrationBasket>
+          <CalibrationStatus> Ok </CalibrationStatus>
+          <CalMeanR> BootstrapOnly </CalMeanR>
+          <UseAdjusters> 0 </UseAdjusters>
+          <FBestFitLevel> -1 </FBestFitLevel>
+          <SBestFitLevel> -1 </SBestFitLevel>
+          <FBootstrapLevel> 0 </FBootstrapLevel>
+          <SBootstrapLevel> 1 </SBootstrapLevel>
+          <FAdjusterLevel> 0 </FAdjusterLevel>
+          <SAdjusterLevel> 0 </SAdjusterLevel>
+          <MaxAdjusterStdDev> 0.00 </MaxAdjusterStdDev>
+          <CalAnalysis> 1 </CalAnalysis>
+          <CalibrateSkew> 0 </CalibrateSkew>
+          <ANSLinearInterpolation> 0 </ANSLinearInterpolation>
+          <CmsLevels> 0  ;  0  ;  0  ;  0  ;  0 </CmsLevels>
+          <CmsReplicationSwapRateModel> Linear </CmsReplicationSwapRateModel>
+          <CalibrationLevelDescriptionList>
+            <CalibrationLevelDescription>0 ; Coterminal ; OnExercizeDate </CalibrationLevelDescription>
+          </CalibrationLevelDescriptionList>
+          <NumberOfElements> 4 </NumberOfElements>
+          <CalibrationInstruments>
+            <CalibrationInstrument>
+              <Type> Instrument </Type>
+              <OptionType> AssetPut </OptionType>
+              <CalibrationLevel> 0 </CalibrationLevel>
+              <OptionExpiry>   0.9972602739726  </OptionExpiry>
+              <FXDeltaATMDefinition> 0 </FXDeltaATMDefinition>
+              <FXDeltaConvention> 0 </FXDeltaConvention>
+              <ForwardDate>   0.0000000000000  </ForwardDate>
+              <OptionDelivery>   0.0000000000000  </OptionDelivery>
+              <BlackVol>   0.1000000000000  </BlackVol>
+              <VolModel> Normal </VolModel>
+              <BlackVolSlope>   0.0000000000000  </BlackVolSlope>
+              <ExoticUnderlying> 0 ;   0.0000000000000 ;    0.0000000000000 ;   0.0000000000000 ;   0.0000000000000 ;   0.0000000000000 </ExoticUnderlying>
+              <ExoticPremium>    0.0000000000000 ;    0.0000000000000  </ExoticPremium>
+              <Weight>   0.0000000000000  </Weight>
+              <BasicDyn>Fixed </BasicDyn>
+              <PayReceive> Payer </PayReceive>
+              <CalInstKType> Fixed </CalInstKType>
+              <BlackPrice>   0.1683159664196  </BlackPrice>
+              <CalInstStatus> Ok </CalInstStatus>
+              <CalibratedPremium>   0.1683159664196  </CalibratedPremium>
+              <CalibratedVolatility>   0.1000000000000  </CalibratedVolatility>
+              <TargetVolatility>   0.1000000000000  </TargetVolatility>
+              <CalInstTenor> 6 </CalInstTenor>
+              <SwapRateInfo>
+                <SpotSwapRate>   0.0036911064450  </SpotSwapRate>
+                <FixLeg>   4.0351634143905  </FixLeg>
+                <FwdSwapRateCmsRep>   0.0036911064450  </FwdSwapRateCmsRep>
+                <FwdSwapRateModel>   0.0000000000000  </FwdSwapRateModel>
+              </SwapRateInfo>
+              <FlowsNb> 6 </FlowsNb>
+              <Flows>
+                <Flow>   1.0054794520548 ;   1.0000000000000 ;   0.0000000000000 ; FloatingLeg </Flow>
+                <Flow>   2.0109589041096 ;  -0.0000000000000 ;   1.0194444444444 ; FixFleg </Flow>
+                <Flow>   3.0082191780822 ;  -0.0000000000000 ;   1.0111111111111 ; FixFleg </Flow>
+                <Flow>   4.0082191780822 ;  -0.0000000000000 ;   1.0138888888889 ; FixFleg </Flow>
+                <Flow>   5.0082191780822 ;  -0.0000000000000 ;   1.0138888888889 ; FixFleg </Flow>
+                <Flow>   5.0082191780822 ;  -1.0000000000000 ;   0.0000000000000 ; FloatingLeg </Flow>
+              </Flows>
+            </CalibrationInstrument>
+            <CalibrationInstrument>
+              <Type> Instrument </Type>
+              <OptionType> AssetCall </OptionType>
+              <CalibrationLevel> 0 </CalibrationLevel>
+              <OptionExpiry>   0.0000000000000  </OptionExpiry>
+              <FXDeltaATMDefinition> 0 </FXDeltaATMDefinition>
+              <FXDeltaConvention> 0 </FXDeltaConvention>
+              <ForwardDate>   0.0000000000000  </ForwardDate>
+              <OptionDelivery>   0.0000000000000  </OptionDelivery>
+              <BlackVol>   0.0000000000000  </BlackVol>
+              <BlackVolSlope>   0.0000000000000  </BlackVolSlope>
+              <ExoticUnderlying> 0 ;   0.0000000000000 ;    0.0000000000000 ;   0.0000000000000 ;   0.0000000000000 ;   0.0000000000000 </ExoticUnderlying>
+              <ExoticPremium>    0.0000000000000 ;    0.0000000000000  </ExoticPremium>
+              <Weight>   0.0000000000000  </Weight>
+              <PayReceive> Receiver </PayReceive>
+              <CalInstKType> Fixed </CalInstKType>
+              <CalInstStatus> Skipped </CalInstStatus>
+              <CalibratedPremium>   0.0000000000000  </CalibratedPremium>
+              <CalibratedVolatility>   0.0000000000000  </CalibratedVolatility>
+              <CalInstTenor> 0 </CalInstTenor>
+              <FlowsNb> 0 </FlowsNb>
+              <Flows></Flows>
+            </CalibrationInstrument>
+            <CalibrationInstrument>
+              <Type> Instrument </Type>
+              <OptionType> AssetCall </OptionType>
+              <CalibrationLevel> 0 </CalibrationLevel>
+              <OptionExpiry>   0.0000000000000  </OptionExpiry>
+              <FXDeltaATMDefinition> 0 </FXDeltaATMDefinition>
+              <FXDeltaConvention> 0 </FXDeltaConvention>
+              <ForwardDate>   0.0000000000000  </ForwardDate>
+              <OptionDelivery>   0.0000000000000  </OptionDelivery>
+              <BlackVol>   0.0000000000000  </BlackVol>
+              <BlackVolSlope>   0.0000000000000  </BlackVolSlope>
+              <ExoticUnderlying> 0 ;   0.0000000000000 ;    0.0000000000000 ;   0.0000000000000 ;   0.0000000000000 ;   0.0000000000000 </ExoticUnderlying>
+              <ExoticPremium>    0.0000000000000 ;    0.0000000000000  </ExoticPremium>
+              <Weight>   0.0000000000000  </Weight>
+              <PayReceive> Receiver </PayReceive>
+              <CalInstKType> Fixed </CalInstKType>
+              <CalInstStatus> Skipped </CalInstStatus>
+              <CalibratedPremium>   0.0000000000000  </CalibratedPremium>
+              <CalibratedVolatility>   0.0000000000000  </CalibratedVolatility>
+              <CalInstTenor> 0 </CalInstTenor>
+              <FlowsNb> 0 </FlowsNb>
+              <Flows></Flows>
+            </CalibrationInstrument>
+            <CalibrationInstrument>
+              <Type> Instrument </Type>
+              <OptionType> AssetCall </OptionType>
+              <CalibrationLevel> 0 </CalibrationLevel>
+              <OptionExpiry>   0.0000000000000  </OptionExpiry>
+              <FXDeltaATMDefinition> 0 </FXDeltaATMDefinition>
+              <FXDeltaConvention> 0 </FXDeltaConvention>
+              <ForwardDate>   0.0000000000000  </ForwardDate>
+              <OptionDelivery>   0.0000000000000  </OptionDelivery>
+              <BlackVol>   0.0000000000000  </BlackVol>
+              <BlackVolSlope>   0.0000000000000  </BlackVolSlope>
+              <ExoticUnderlying> 0 ;   0.0000000000000 ;    0.0000000000000 ;   0.0000000000000 ;   0.0000000000000 ;   0.0000000000000 </ExoticUnderlying>
+              <ExoticPremium>    0.0000000000000 ;    0.0000000000000  </ExoticPremium>
+              <Weight>   0.0000000000000  </Weight>
+              <PayReceive> Receiver </PayReceive>
+              <CalInstKType> Fixed </CalInstKType>
+              <CalInstStatus> Skipped </CalInstStatus>
+              <CalibratedPremium>   0.0000000000000  </CalibratedPremium>
+              <CalibratedVolatility>   0.0000000000000  </CalibratedVolatility>
+              <CalInstTenor> 0 </CalInstTenor>
+              <FlowsNb> 0 </FlowsNb>
+              <Flows></Flows>
+            </CalibrationInstrument>
+          </CalibrationInstruments>
+        </CalibrationBasket>
+        <Beta>0.000000</Beta>
+        <CapSmile>0</CapSmile>
+        <VolType> VolFwdFwd </VolType>
+        <ModelType> HW </ModelType>
+        <PositiveRates>0</PositiveRates>
+        <AssetType> Rate </AssetType>
+        <AssetProxyType> Rate </AssetProxyType>
+        <IsRisky> No </IsRisky>
+        <DSCCreditBased> 0 </DSCCreditBased>
+      </Process>
+    </Processes>
+  </ProcessesList>
+  <CrossCorrelationList>
+    <NumberOfElements> 1 </NumberOfElements>
+    <CrossCorrelations>
+      <CrossCorrelation>
+        <Process1>
+          <AssetType> Rate </AssetType>
+          <ProcessLabel>EUR</ProcessLabel>
+          <ModelType> HW </ModelType>
+          <ProcessIndex> 0 </ProcessIndex>
+        </Process1>
+        <Process2>
+          <AssetType> Rate </AssetType>
+          <ProcessLabel>EUR</ProcessLabel>
+          <ModelType> HW </ModelType>
+          <ProcessIndex> 0 </ProcessIndex>
+        </Process2>
+        <FactorList>
+          <NumberOfElements> 1 </NumberOfElements>
+          <Factors>
+            <Factor>
+              <Factor1> 0 </Factor1>
+              <Factor2> 0 </Factor2>
+              <InstantaneousCorrelation>
+                <OneDCurve>
+                  <InterpolationMethod> PieceWise </InterpolationMethod>
+                  <NumberOfElements> 2 </NumberOfElements>
+                  <Buckets>  0.0000000000000  ;  35.0000000000000 </Buckets>
+                  <Values>  1.0000000000000  ;   1.0000000000000 </Values>
+                </OneDCurve>
+              </InstantaneousCorrelation>
+            </Factor>
+          </Factors>
+        </FactorList>
+      </CrossCorrelation>
+    </CrossCorrelations>
+  </CrossCorrelationList>
+  <WorkOnGpu> No </WorkOnGpu>
+  <QueriesList>
+    <NumberOfElements> 1 </NumberOfElements>
+    <Queries>
+      <Query>
+        <QRType> Npv </QRType>
+        <QRAssetType> Rate </QRAssetType>
+        <QRAsset> 0 </QRAsset>
+        <QRLevel> 0 </QRLevel>
+        <QRCalibrate> 1 </QRCalibrate>
+        <QueryGenerateAnalyticalSns> 0 </QueryGenerateAnalyticalSns>
+        <ExcludeAnalyticalSnsCompuation> 0 </ExcludeAnalyticalSnsCompuation>
+        <TermStructureAsOneBump> 0 </TermStructureAsOneBump>
+        <SausageMode> 0 </SausageMode>
+        <QRResultsList>
+          <NumberOfElements> 1 </NumberOfElements>
+          <QRResults>
+            <QRResult>
+              <QRResultID> 0 </QRResultID>
+              <VariablesList>
+                <NumberOfElements> 4 </NumberOfElements>
+                <Variables>
+                  <Variable>
+                    <VariableDescription>Discount_0_4_5 ; Discounted ; Contract ; Double </VariableDescription>
+                    <ComputeValue> Yes </ComputeValue>
+                    <ComputeExpectationArray> No </ComputeExpectationArray>
+                    <ComputeVarianceArray> No </ComputeVarianceArray>
+                    <VariableValue>   0.9978351813686 </VariableValue>
+                    <VariableSns>
+                      <NumberOfElements> 1 </NumberOfElements>
+                      <VariableSnsList>
+                        <ASns> 0 ; 0 ; 10 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ;   0.0000000065377  </ASns>
+                      </VariableSnsList>
+                    </VariableSns>
+                  </Variable>
+                  <Variable>
+                    <VariableDescription>Discount_4_4_5 ; Discounted ; Contract ; Double </VariableDescription>
+                    <ComputeValue> Yes </ComputeValue>
+                    <ComputeExpectationArray> No </ComputeExpectationArray>
+                    <ComputeVarianceArray> No </ComputeVarianceArray>
+                    <VariableValue>   0.9727296271260 </VariableValue>
+                    <VariableSns>
+                      <NumberOfElements> 1 </NumberOfElements>
+                      <VariableSnsList>
+                        <ASns> 0 ; 0 ; 10 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ;   0.0132058554020  </ASns>
+                      </VariableSnsList>
+                    </VariableSns>
+                  </Variable>
+                  <Variable>
+                    <VariableDescription>Pay_4_5 ; Discounted ; Contract ; Double </VariableDescription>
+                    <ComputeValue> Yes </ComputeValue>
+                    <ComputeExpectationArray> No </ComputeExpectationArray>
+                    <ComputeVarianceArray> No </ComputeVarianceArray>
+                    <VariableValue>   0.9727296271260 </VariableValue>
+                    <MCDensity>
+                      <NumberOfElements> 1 </NumberOfElements>
+                      <Density>
+                        <FixingDate>   4.0000000000000 </FixingDate>
+                        <PayDate>   5.0000000000000 </PayDate>
+                        <IDLeg> 1010 </IDLeg>
+                        <CashFlowTypology> 0 </CashFlowTypology>
+                        <Expectation>   0.9727296271260 </Expectation>
+                        <ConditionalDensity> Uncond </ConditionalDensity>
+                        <OneDCurve>
+                          <InterpolationMethod> PieceWise </InterpolationMethod>
+                          <NumberOfElements> 33 </NumberOfElements>
+                          <Buckets>  0.9367900891351  ;   0.9390503167229  ;   0.9413105443108  ;   0.9435707718986  ;   0.9458309994865  ;   0.9480912270743  ;   0.9503514546622  ;   0.9526116822500  ;   0.9548719098379  ;   0.9571321374257  ;   0.9593923650136  ;   0.9616525926014  ;   0.9639128201893  ;   0.9661730477771  ;   0.9684332753650  ;   0.9706935029528  ;   0.9729537305407  ;   0.9752139581285  ;   0.9774741857164  ;   0.9797344133042  ;   0.9819946408921  ;   0.9842548684799  ;   0.9865150960678  ;   0.9887753236556  ;   0.9910355512435  ;   0.9932957788313  ;   0.9955560064192  ;   0.9978162340070  ;   1.0000764615949  ;   1.0023366891827  ;   1.0045969167706  ;   1.0068571443584  ;   1.0091173719463 </Buckets>
+                          <Values>  0.3333333333333  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.3333333333333  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.3333333333333  ;   0.0000000000000 </Values>
+                        </OneDCurve>
+                      </Density>
+                    </MCDensity>
+                    <VariableSns>
+                      <NumberOfElements> 1 </NumberOfElements>
+                      <VariableSnsList>
+                        <ASns> 0 ; 0 ; 10 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ;   0.0132058554020  </ASns>
+                      </VariableSnsList>
+                    </VariableSns>
+                  </Variable>
+                  <Variable>
+                    <VariableDescription>Pay_5_5 ; Discounted ; Contract ; Double </VariableDescription>
+                    <ComputeValue> Yes </ComputeValue>
+                    <ComputeExpectationArray> No </ComputeExpectationArray>
+                    <ComputeVarianceArray> No </ComputeVarianceArray>
+                    <VariableValue>   0.9674397083035 </VariableValue>
+                    <MCDensity>
+                      <NumberOfElements> 1 </NumberOfElements>
+                      <Density>
+                        <FixingDate>   5.0000000000000 </FixingDate>
+                        <PayDate>   5.0000000000000 </PayDate>
+                        <IDLeg> 1010 </IDLeg>
+                        <CashFlowTypology> 0 </CashFlowTypology>
+                        <Expectation>   0.9674397083035 </Expectation>
+                        <ConditionalDensity> Uncond </ConditionalDensity>
+                        <OneDCurve>
+                          <InterpolationMethod> PieceWise </InterpolationMethod>
+                          <NumberOfElements> 33 </NumberOfElements>
+                          <Buckets>  0.9119520520821  ;   0.9154538405700  ;   0.9189556290579  ;   0.9224574175457  ;   0.9259592060336  ;   0.9294609945214  ;   0.9329627830093  ;   0.9364645714972  ;   0.9399663599850  ;   0.9434681484729  ;   0.9469699369608  ;   0.9504717254486  ;   0.9539735139365  ;   0.9574753024244  ;   0.9609770909122  ;   0.9644788794001  ;   0.9679806678880  ;   0.9714824563758  ;   0.9749842448637  ;   0.9784860333516  ;   0.9819878218394  ;   0.9854896103273  ;   0.9889913988152  ;   0.9924931873030  ;   0.9959949757909  ;   0.9994967642788  ;   1.0029985527666  ;   1.0065003412545  ;   1.0100021297423  ;   1.0135039182302  ;   1.0170057067181  ;   1.0205074952059  ;   1.0240092836938 </Buckets>
+                          <Values>  0.3333333333333  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.3333333333333  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.0000000000000  ;   0.3333333333333  ;   0.0000000000000 </Values>
+                        </OneDCurve>
+                      </Density>
+                    </MCDensity>
+                    <VariableSns>
+                      <NumberOfElements> 1 </NumberOfElements>
+                      <VariableSnsList>
+                        <ASns> 0 ; 0 ; 10 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ;   0.0204616183815  </ASns>
+                      </VariableSnsList>
+                    </VariableSns>
+                  </Variable>
+                </Variables>
+              </VariablesList>
+            </QRResult>
+          </QRResults>
+        </QRResultsList>
+      </Query>
+    </Queries>
+  </QueriesList>
+  <Profiling>
+    <NumericalSettings>
+      <EffectiveTimeStep> 5 </EffectiveTimeStep>
+      <EffectivePath> 6 </EffectivePath>
+    </NumericalSettings>
+    <TotalQueriesTime>0.315100 </TotalQueriesTime>
+    <TotalCalibrationTime>0.001000 </TotalCalibrationTime>
+    <PayoffTime>0.311000 </PayoffTime>
+    <TotalDeserializationInputTime>0.001100 </TotalDeserializationInputTime>
+    <TotalNumberOfCalibrations> 1 </TotalNumberOfCalibrations>
+  </Profiling>
+  <PastCashFlowsInfo>
+    <AcceptTodayCashFlows> 0 </AcceptTodayCashFlows>
+    <ProductKilled> 0 </ProductKilled>
+    <ProductKilledToday> 0 </ProductKilledToday>
+    <KillDate>   0.0000000000000  </KillDate>
+    <PayFailedFixingMissing> 0 </PayFailedFixingMissing>
+    <FixingMissing> 0 </FixingMissing>
+    <MinDateFixingMissing> -2000.0000000000000  </MinDateFixingMissing>
+    <FlowsList>
+      <NumberOfFlows> 0 </NumberOfFlows>
+      <Flows></Flows>
+    </FlowsList>
+  </PastCashFlowsInfo>
+</MacsML>

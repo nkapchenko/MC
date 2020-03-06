@@ -1,0 +1,206 @@
+<!DOCTYPE MacsML []>
+<MacsML>
+  <IDs> 107664 ; 0 </IDs>
+  <ProcessesList>
+    <NumberOfElements> 1 </NumberOfElements>
+    <Processes>
+      <Process>
+        <ProcessLabel>EUR</ProcessLabel>
+        <ProcessMarket>Unknown</ProcessMarket>
+        <FactorsList>
+          <NumberOfElements> 1 </NumberOfElements>
+          <Factors>
+            <Factor>
+              <VolatilityCurve>
+                <OneDCurve>
+                  <InterpolationMethod> PieceWise </InterpolationMethod>
+                  <NumberOfElements> 2 </NumberOfElements>
+                  <Buckets>  0.0000000000000  ;  10.0000000000000 </Buckets>
+                  <Values>  0.0050000000000  ;   0.0050000000000 </Values>
+                </OneDCurve>
+              </VolatilityCurve>
+              <MeanRR>  0.0500000000000</MeanRR>
+            </Factor>
+          </Factors>
+        </FactorsList>
+        <FactorsCorrelations> 0.0000000000000000 ; 0.0000000000000000 ; 0.0000000000000000 </FactorsCorrelations>
+        <Beta>0.000000</Beta>
+        <CapSmile>0</CapSmile>
+        <VolType> VolFwdFwd </VolType>
+        <ModelType> HW </ModelType>
+        <PositiveRates>0</PositiveRates>
+        <AssetType> Rate </AssetType>
+        <AssetProxyType> Rate </AssetProxyType>
+        <IsRisky> No </IsRisky>
+        <DSCCreditBased> 0 </DSCCreditBased>
+      </Process>
+    </Processes>
+  </ProcessesList>
+  <CrossCorrelationList>
+    <NumberOfElements> 1 </NumberOfElements>
+    <CrossCorrelations>
+      <CrossCorrelation>
+        <Process1>
+          <AssetType> Rate </AssetType>
+          <ProcessLabel>EUR</ProcessLabel>
+          <ModelType> HW </ModelType>
+          <ProcessIndex> 0 </ProcessIndex>
+        </Process1>
+        <Process2>
+          <AssetType> Rate </AssetType>
+          <ProcessLabel>EUR</ProcessLabel>
+          <ModelType> HW </ModelType>
+          <ProcessIndex> 0 </ProcessIndex>
+        </Process2>
+        <FactorList>
+          <NumberOfElements> 1 </NumberOfElements>
+          <Factors>
+            <Factor>
+              <Factor1> 0 </Factor1>
+              <Factor2> 0 </Factor2>
+              <InstantaneousCorrelation>
+                <OneDCurve>
+                  <InterpolationMethod> PieceWise </InterpolationMethod>
+                  <NumberOfElements> 2 </NumberOfElements>
+                  <Buckets>  0.0000000000000  ;  35.0000000000000 </Buckets>
+                  <Values>  1.0000000000000  ;   1.0000000000000 </Values>
+                </OneDCurve>
+              </InstantaneousCorrelation>
+            </Factor>
+          </Factors>
+        </FactorList>
+      </CrossCorrelation>
+    </CrossCorrelations>
+  </CrossCorrelationList>
+  <WorkOnGpu> No </WorkOnGpu>
+  <QueriesList>
+    <NumberOfElements> 1 </NumberOfElements>
+    <Queries>
+      <Query>
+        <QRType> Npv </QRType>
+        <QRAssetType> Rate </QRAssetType>
+        <QRAsset> 0 </QRAsset>
+        <QRLevel> 0 </QRLevel>
+        <QRCalibrate> 1 </QRCalibrate>
+        <QueryGenerateAnalyticalSns> 0 </QueryGenerateAnalyticalSns>
+        <ExcludeAnalyticalSnsCompuation> 0 </ExcludeAnalyticalSnsCompuation>
+        <TermStructureAsOneBump> 0 </TermStructureAsOneBump>
+        <SausageMode> 0 </SausageMode>
+        <QRResultsList>
+          <NumberOfElements> 1 </NumberOfElements>
+          <QRResults>
+            <QRResult>
+              <QRResultID> 0 </QRResultID>
+              <VariablesList>
+                <NumberOfElements> 6 </NumberOfElements>
+                <Variables>
+                  <Variable>
+                    <VariableDescription>FwdD1Y ; Discounted ; Contract ; Double </VariableDescription>
+                    <ComputeValue> Yes </ComputeValue>
+                    <ComputeExpectationArray> No </ComputeExpectationArray>
+                    <ComputeVarianceArray> No </ComputeVarianceArray>
+                    <VariableValue>   0.9417645335842 </VariableValue>
+                    <VariableSns>
+                      <NumberOfElements> 1 </NumberOfElements>
+                      <VariableSnsList>
+                        <ASns> 0 ; 0 ; 10 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ;   0.0000000000000  </ASns>
+                      </VariableSnsList>
+                    </VariableSns>
+                  </Variable>
+                  <Variable>
+                    <VariableDescription>FwdD2Y ; Discounted ; Contract ; Double </VariableDescription>
+                    <ComputeValue> Yes </ComputeValue>
+                    <ComputeExpectationArray> No </ComputeExpectationArray>
+                    <ComputeVarianceArray> No </ComputeVarianceArray>
+                    <VariableValue>   0.9417645335842 </VariableValue>
+                    <VariableSns>
+                      <NumberOfElements> 1 </NumberOfElements>
+                      <VariableSnsList>
+                        <ASns> 0 ; 0 ; 10 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ;   0.0000000000000  </ASns>
+                      </VariableSnsList>
+                    </VariableSns>
+                  </Variable>
+                  <Variable>
+                    <VariableDescription>FwdD3Y ; Discounted ; Contract ; Double </VariableDescription>
+                    <ComputeValue> Yes </ComputeValue>
+                    <ComputeExpectationArray> No </ComputeExpectationArray>
+                    <ComputeVarianceArray> No </ComputeVarianceArray>
+                    <VariableValue>   0.9417645335842 </VariableValue>
+                    <VariableSns>
+                      <NumberOfElements> 1 </NumberOfElements>
+                      <VariableSnsList>
+                        <ASns> 0 ; 0 ; 10 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ;   0.0000000000000  </ASns>
+                      </VariableSnsList>
+                    </VariableSns>
+                  </Variable>
+                  <Variable>
+                    <VariableDescription>FwdD4Y ; Discounted ; Contract ; Double </VariableDescription>
+                    <ComputeValue> Yes </ComputeValue>
+                    <ComputeExpectationArray> No </ComputeExpectationArray>
+                    <ComputeVarianceArray> No </ComputeVarianceArray>
+                    <VariableValue>   0.9417645335842 </VariableValue>
+                    <VariableSns>
+                      <NumberOfElements> 1 </NumberOfElements>
+                      <VariableSnsList>
+                        <ASns> 0 ; 0 ; 10 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ;   0.0000000000000  </ASns>
+                      </VariableSnsList>
+                    </VariableSns>
+                  </Variable>
+                  <Variable>
+                    <VariableDescription>FwdD5Y ; Discounted ; Contract ; Double </VariableDescription>
+                    <ComputeValue> Yes </ComputeValue>
+                    <ComputeExpectationArray> No </ComputeExpectationArray>
+                    <ComputeVarianceArray> No </ComputeVarianceArray>
+                    <VariableValue>   0.9417645335842 </VariableValue>
+                    <VariableSns>
+                      <NumberOfElements> 1 </NumberOfElements>
+                      <VariableSnsList>
+                        <ASns> 0 ; 0 ; 10 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ;   0.0000000000000  </ASns>
+                      </VariableSnsList>
+                    </VariableSns>
+                  </Variable>
+                  <Variable>
+                    <VariableDescription>Unit ; Discounted ; Contract ; Double </VariableDescription>
+                    <ComputeValue> Yes </ComputeValue>
+                    <ComputeExpectationArray> No </ComputeExpectationArray>
+                    <ComputeVarianceArray> No </ComputeVarianceArray>
+                    <VariableValue>   1.0000000000000 </VariableValue>
+                    <VariableSns>
+                      <NumberOfElements> 1 </NumberOfElements>
+                      <VariableSnsList>
+                        <ASns> 0 ; 0 ; 10 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ; 0.000000 ;   0.0000000017010  </ASns>
+                      </VariableSnsList>
+                    </VariableSns>
+                  </Variable>
+                </Variables>
+              </VariablesList>
+            </QRResult>
+          </QRResults>
+        </QRResultsList>
+      </Query>
+    </Queries>
+  </QueriesList>
+  <Profiling>
+    <NumericalSettings>
+      <EffectiveTimeStep> 7 </EffectiveTimeStep>
+      <EffectivePath> 1022 </EffectivePath>
+    </NumericalSettings>
+    <TotalQueriesTime>0.439600 </TotalQueriesTime>
+    <TotalCalibrationTime>0.000000 </TotalCalibrationTime>
+    <PayoffTime>0.320300 </PayoffTime>
+    <TotalDeserializationInputTime>0.000600 </TotalDeserializationInputTime>
+  </Profiling>
+  <PastCashFlowsInfo>
+    <AcceptTodayCashFlows> 0 </AcceptTodayCashFlows>
+    <ProductKilled> 0 </ProductKilled>
+    <ProductKilledToday> 0 </ProductKilledToday>
+    <KillDate>   0.0000000000000  </KillDate>
+    <PayFailedFixingMissing> 0 </PayFailedFixingMissing>
+    <FixingMissing> 0 </FixingMissing>
+    <MinDateFixingMissing> -2000.0000000000000  </MinDateFixingMissing>
+    <FlowsList>
+      <NumberOfFlows> 0 </NumberOfFlows>
+      <Flows></Flows>
+    </FlowsList>
+  </PastCashFlowsInfo>
+</MacsML>
