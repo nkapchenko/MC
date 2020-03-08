@@ -1,10 +1,9 @@
 from abc import ABCMeta, abstractmethod
 import numpy as np
 import pandas as pd
-from hw import Jamshidian
-from hw import Henrard
 from numpy import exp
 from hw import hw_helper
+from mc import curiosity
 
 class Process(metaclass=ABCMeta):
     @abstractmethod
@@ -24,11 +23,11 @@ class BlackScholesProcess(Process): # should be abc class
         return self.S0
     
     
-    def generate_paths(self, until, timestep, spotstep):
+    def generate_paths(self, until, timestep, paths):
         dt = until / timestep
         
-        noise = np.random.normal(0, 1., (timestep, spotstep))
-        diffusion = np.zeros([timestep+1, spotstep]) + self.initial_value
+        noise = np.random.normal(0, 1., (timestep, paths))
+        diffusion = np.zeros([timestep+1, paths]) + self.initial_value
         
         for t, rnd in zip(range(timestep), noise):
                 diffusion[t+1] = diffusion[t]*(1 + self.mu*dt + self.vol*np.sqrt(dt)*rnd)
@@ -61,59 +60,37 @@ class HullWhiteProcess(Process):
         return hw_helper.get_drift_T(s, t, U, a=self.mr, sigma=self.sigma)
     
     
-    def generate_paths(self, until, timestep, spotstep):
+    def generate_paths(self, until, timestep, paths, curiosity = False):
+        """
+        return dataframe with monte carlo simulation using exact solution for Ornstein Uhlenbeck process.
+        Measure is defined in self.isT
+        
+        until - final diffusion time point that defines T-MEASURE
+        timestep - time discretization number
+        paths - number of monte carlo trajectories
+        
+        curiosity - if True returns additional second parameter - tuple with dataframes (for more info check curiosity.mc_curiosity)   
+        """
         
         time_ax = np.linspace(0, until, timestep+1) # +1 to have pretty sampling
         dt = until/timestep
         
-        noise = np.random.normal(0, 1., (timestep, spotstep))
+        noise = np.random.normal(0, 1., (timestep, paths))
         
-        euler_diffusion = np.zeros([timestep+1, spotstep]) + self.initial_value
-        euler_diffusion_no_noise = np.zeros([timestep+1, 1]) + self.initial_value
-        
-        exact_diffusion_no_noise = np.zeros([timestep+1, 1]) + self.initial_value
-        numerical_drift_diffusion = np.zeros([timestep+1, 1]) + self.initial_value
-        exact_diffusion = np.zeros([timestep+1, spotstep]) + self.initial_value
-
-        # EULER
-        for (t_idx, t), rnd in zip(enumerate(time_ax), noise):
-                euler_diffusion[t_idx+1] = (euler_diffusion[t_idx]
-                                      - self.isT * Jamshidian._B(t, until, self.mr) * self.sigma(t)**2 * dt
-                                      - self.mr * euler_diffusion[t_idx] * dt 
-                                      + self.sigma(t) * np.sqrt(dt) * rnd)
-                
-                
-        for t_idx, t in enumerate(time_ax[:-1]):
-            euler_diffusion_no_noise[t_idx+1] = (euler_diffusion_no_noise[t_idx]
-                                      - self.isT * Jamshidian._B(t, until, self.mr) * self.sigma(t)**2 * dt
-                                      - self.mr * euler_diffusion_no_noise[t_idx] * dt )
-        
-        # EXACT SOLUTION
-        for t_idx, t in enumerate(time_ax[:-1]):
-                exact_diffusion_no_noise[t_idx+1] = (exact_diffusion_no_noise[t_idx] * exp( - self.mr * dt) 
-                                            - self.isT * self.drift_T(s=t, t=t+dt, U=until)
-                )
-                
-        for t_idx, t in enumerate(time_ax[:-1]):
-                numerical_drift_diffusion[t_idx+1] = (numerical_drift_diffusion[t_idx]
-                                            - self.isT * self.drift_T(s=t, t=t+dt, U=until)
-                )
+        exact_diffusion = np.zeros([timestep+1, paths]) + self.initial_value
         
         for (t_idx, t), rnd in zip(enumerate(time_ax), noise):
                 exact_diffusion[t_idx+1] = (exact_diffusion[t_idx] * exp( - self.mr * dt) 
                                             - self.isT * self.drift_T(s=t, t=t+dt, U=until)
-                                            + self.sigma(t) * exp(-self.mr * dt) * np.sqrt(dt) * rnd
-                )
+                                            + self.sigma(t) * exp(-self.mr * dt) * np.sqrt(dt) * rnd)
                 
-                
-        euler_df = pd.DataFrame(euler_diffusion, index = np.linspace(0, until, timestep + 1 ) )
-        euler_numerical_drift_df = pd.DataFrame(euler_diffusion_no_noise, index = np.linspace(0, until, timestep + 1 ) )
+        exact_df = pd.DataFrame(exact_diffusion, index = np.linspace(0, until, timestep + 1 ) )  
         
-        exact_drift_df = pd.DataFrame(exact_diffusion_no_noise, index = np.linspace(0, until, timestep + 1 ) )
-        numerical_drift_df = pd.DataFrame(numerical_drift_diffusion, index = np.linspace(0, until, timestep + 1 ) )
-        exact_df = pd.DataFrame(exact_diffusion, index = np.linspace(0, until, timestep + 1 ) )
-        
-        return euler_df, euler_numerical_drift_df, exact_drift_df, numerical_drift_df, exact_df
+        if not curiosity:
+            return exact_df
+        else:       
+            euler_df, euler_drift_df, exact_drift_df, drift_T_cumsum_df = curiosity.mc_curiosity(self, until, timestep, paths, time_ax , dt, noise)
+            return exact_df, (euler_df, euler_drift_df, exact_drift_df, drift_T_cumsum_df)
     
 
     def fwd_bond(self, t, T, dsc_curve, x):
