@@ -2,16 +2,15 @@ from abc import ABCMeta, abstractmethod
 import numpy as np
 import pandas as pd
 from numpy import exp
+from mc.curiosity import mc_curiosity
+from mc.stochasticprocess import StochasticProcess
+from collections import namedtuple
+
 from hw import hw_helper
-from mc import curiosity
-
-class Process(metaclass=ABCMeta):
-    @abstractmethod
-    def initial_value(self):
-        pass
 
 
-class BlackScholesProcess(Process): # should be abc class
+
+class BlackScholesProcess(StochasticProcess): # should be abc class
 
     def __init__(self, mu, vol, S0):
         self.mu = mu
@@ -23,7 +22,7 @@ class BlackScholesProcess(Process): # should be abc class
         return self.S0
     
     
-    def generate_paths(self, until, timestep, paths):
+    def generate_paths(self, until, timestep, paths, curiosity=False):
         dt = until / timestep
         
         noise = np.random.normal(0, 1., (timestep, paths))
@@ -35,67 +34,100 @@ class BlackScholesProcess(Process): # should be abc class
         return pd.DataFrame(diffusion, index = np.linspace(0, until, timestep + 1 ) )
 
 
-class HullWhiteProcess(Process):
-    from hw import Henrard
-    from hw import Jamshidian
+class HullWhiteProcess(StochasticProcess):
 
-    def __init__(self, mr, sigma, x0, measure='terminal'):
-            self.mr = mr
-            self.sigma = sigma
-            self.x0 = x0
-            self.isT = True if measure =='terminal' else False
+    def __init__(self, model, x0, measure):
+        """
+        model = hw.HullWhite
+        x0 = float or array
+        measure - float, 0. for Risk neutral measure, float for T-forward measure
+        """
+        self.mr = model.mr
+        self.sigma = model.sigma
+        self.x0 = x0
+        self.measure = measure
+        
+#         self.diffusion = None
+
             
+    @property
+    def size(self):
+        return 1
+
+                  
     @property
     def initial_value(self):
         return self.x0
     
     @property
-    def measure(self):
-        return 'terminal' if self.isT else 'Risk neutral'
+    def drift_coef(self, t, x):
+        pass
     
-    def drift_T(self, s, t, U):
-        """s - is a lower bound in integral (is a Filtration time Fs) 
-        t - is a upper bound in integral (is a time point where x(t) is evaluated) 
-        U - is a measure maturity """
-        return hw_helper.get_drift_T(s, t, U, a=self.mr, sigma=self.sigma)
+    @property
+    def diffusion_coef(self, t, x):
+        return self.sigma
     
     
-    def generate_paths(self, until, timestep, paths, curiosity = False):
+    def expectation(self, s, x0, dt):
         """
-        return dataframe with monte carlo simulation using exact solution for Ornstein Uhlenbeck process.
-        Measure is defined in self.isT
+        compute E( X(s+dt) | Xs = x0)
+        s - is a Filtration time Fs (is a lower bound in integral)
+        x0 - known state value at time s
+        t - is a upper bound in integral (is a time where x(t) is evaluated) 
+        """
         
-        until - final diffusion time point that defines T-MEASURE
+        if self.measure == 0.: # RN
+            return  x0 * exp( - self.mr * dt)
+        else: # T-forward 
+            return x0 * exp( - self.mr * dt) - hw_helper.get_drift_T(s, s+dt, U=self.measure, a=self.mr, sigma=self.sigma)
+        
+        
+    def stdDeviation(self, s, dt):
+        return np.sqrt(self.variance(s, dt))
+    
+    def variance(self, s, dt):
+        return hw_helper.get_var_x(T=s+dt, a=self.mr, sigma=self.sigma, s=s)
+    
+    def covariance(self, s, dt):
+        " V(X(s+dt) | Xs = x0) "
+        return self.covariance(s, dt)
+    
+    def evolve(self, s, x0, dt, dw):
+        pass
+    
+    
+    def generate_paths(self, until, timestep, spotstep, curiosity = False):
+        """
+        return dataframe with monte carlo simulation using exact solution for Ornstein Uhlenbeck process (aka Xt).
+        
+        until - final diffusion time point. If RN=False it defines T-MEASURE maturity (aka U)
         timestep - time discretization number
-        paths - number of monte carlo trajectories
+        spotstep - number of monte carlo trajectories
         
         curiosity - if True returns additional second parameter - tuple with dataframes (for more info check curiosity.mc_curiosity)   
         """
-        
-        time_ax = np.linspace(0, until, timestep+1) # +1 to have pretty sampling
+        time_axis = np.linspace(0, until, timestep+1) # +1 to have pretty sampling
         dt = until/timestep
         
-        noise = np.random.normal(0, 1., (timestep, paths))
+        np.random.seed(27)
+        noise = np.random.normal(loc=0, scale=1., size=(timestep, spotstep))
         
-        exact_diffusion = np.zeros([timestep+1, paths]) + self.initial_value
+        exact_diffusion = np.zeros([timestep+1, spotstep]) + self.initial_value
         
-        for (t_idx, t), rnd in zip(enumerate(time_ax), noise):
-                exact_diffusion[t_idx+1] = (exact_diffusion[t_idx] * exp( - self.mr * dt) 
-                                            - self.isT * self.drift_T(s=t, t=t+dt, U=until)
-                                            + self.sigma(t) * exp(-self.mr * dt) * np.sqrt(dt) * rnd)
+        for (t_idx, t), rnd in zip(enumerate(time_axis), noise):
+                exact_diffusion[t_idx+1] = ( self.expectation(s=t, x0=exact_diffusion[t_idx], dt=dt) + self.stdDeviation(s=t, dt=dt) * rnd) 
                 
-        exact_df = pd.DataFrame(exact_diffusion, index = np.linspace(0, until, timestep + 1 ) )  
+        self.diffusion = pd.DataFrame(exact_diffusion, index = time_axis)  
         
         if not curiosity:
-            return exact_df
+            return self.diffusion
         else:       
-            euler_df, euler_drift_df, exact_drift_df, drift_T_cumsum_df = curiosity.mc_curiosity(self, until, timestep, paths, time_ax , dt, noise)
-            return exact_df, (euler_df, euler_drift_df, exact_drift_df, drift_T_cumsum_df)
+            return self.diffusion, mc_curiosity(self, until, timestep, spotstep, time_axis , dt, noise)
     
-
-    def fwd_bond(self, t, T, dsc_curve, x):
-        A = Jamshidian._A(t, T, self.mr, self.sigma, dsc_curve)
-        B = Jamshidian._B(t, T, self.mr)
+    # TODO: this function should be defined inside HullWhite class
+    def fwd_bond(self, t, T, dsc_curve, x): 
+        A = hw_helper._A(t, T, self.mr, self.sigma, dsc_curve)
+        B = hw_helper._B(t, T, self.mr)
         return A * exp(-B * (x + self.isT * self.drift_T(t, T)))
     
     
